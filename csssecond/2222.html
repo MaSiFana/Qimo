@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sf">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS练习</title>
+    <!-- 外部样式表 -->
+    <link rel="stylesheet" href="main.css">
+    <!-- 内部样式表 -->
+    <style>
+  
+      body {
+          background: linear-gradient(135deg, #e3f2ed 0%, #f8f9fa 100%);
+          font-family: '楷体', 'Microsoft YaHei', sans-serif;
+          line-height: 1.8;
+          max-width: 900px;
+          margin: 3rem auto;
+          padding: 0 2rem;
+      }
+  
+    
+      h1 {
+          font-size: 3.5rem;
+          text-align: center; 
+          text-shadow: 2px 2px 4px rgba(46, 125, 50, 0.1);
+          letter-spacing: 0.3rem;
+          margin-bottom: 2rem;
+          position: relative;
+          padding-bottom: 1.5rem;
+      }
+  
+      h1::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 120px;
+          height: 3px;
+          background: #c0e4c2;
+      }
+  
+      
+      h2#CSSyufa {
+          font-size: 0.9rem;
+          font-family: 宋体;
+          padding: 1.5rem;
+          margin: 3rem 0;
+          background: rgba(129, 199, 132, 0.1);
+          border-radius: 8px;
+      }
+  
+     
+      .image-group {
+          text-align: center;
+          margin: 3rem 0;
+      }
+  
+     
+      @media (max-width: 768px) {
+          h1 {
+              font-size: 3rem;
+          }
+          h2#CSSyufa {
+              font-size: 1.6rem;
+          }
+          .abstract {
+              padding: 1.5rem;
+          }
+      }
+  </style>
+  </head>
+  <body>
+   
+    <header>
+      <h1>“在平凡故事中触摸生命的光“</h1>
+      <h2 id="CSSyufa">“山这边是刘十三的童年，山那边是外婆的海。”翻开张嘉佳的《云边有个小卖部》，仿佛走进了一个被时光浸润的南方小镇，在那里，我见证了一场关于成长、亲情与告别的温柔叙事。</h2>
+    </header>
+      <!-- 优化段落排版 -->
+      <p class="abstract">
+        一、云边镇的烟火气：故乡与亲情的诗意栖居
+云边镇像一幅水墨画，在作者细腻的笔触下徐徐展开：开满桔梗的山野、炊烟袅袅的屋顶、外婆小卖部里叮当作响的玻璃罐……这里的生活节奏悠然自得，充满浓厚的乡土气息。外婆王莺莺用她独有的方式守护着小卖部和外孙刘十三，她会在深夜里为刘十三留一盏灯，会悄悄在他枕头下放零钱，嘴上却总嫌弃他“没出息”。这种中国式亲情含蓄而深沉，如同山间清晨的薄雾，看似清淡，实则绵长。
+
+书中最让我动容的场景，是刘十三提着灯笼爬上山顶，为离世的外婆点亮一盏“引路灯”。那一刻，故乡的灯火与天上的星辰连成一片，照亮了刘十三的思念，也照见我们心中那份对亲人永恒的牵挂。外婆说：“什么叫故乡？祖祖辈辈埋葬在这里，所以叫故乡。”原来，故乡不仅是地理坐标，更是血脉与情感的根系。
+      </p>
+      <div class="image-group">
+        <img src="云.jpg" alt="1" width="400">
+        </div>
+
+
+      <p>
+        二、成长的阵痛：在迷茫中寻找光的方向
+刘十三的故事，是千万普通青年的缩影。他怀揣着“考取清华北大，去大城市闯荡”的梦想，却在现实中屡屡碰壁：高考失利、职场受挫、爱情破灭。当他被外婆用拖拉机拉回云边镇时，满身伤痕的刘十三像极了每个在都市丛林中迷失自我的年轻人。
+
+但云边镇用它的方式治愈着刘十三。童年玩伴程霜的出现，像一道穿透乌云的光。这个身患重病的女孩，用乐观与坚韧感染着刘十三，陪他卖保险、照顾孤儿球球，甚至和他“喜当爸妈”。程霜说：“生命是有光的，在我熄灭以前，能够照亮你一点，就是我所有能做的了。”这句话，不仅是他对刘十三的承诺，更是对生命意义的深刻诠释。
+      </p>
+     
+      <div class="image-group">
+        <img src="边.jpg" alt="2" width="400">
+      </div>
+     
+      <p>三、离别的必修课：在泪水中学会珍惜
+  《云边有个小卖部》最动人的力量，在于它坦然直面人生的无常。外婆的突然离世、程霜的病重远行、球球的被迫离开……这些离别像锋利的刀，割裂着刘十三的生活，却也让他真正懂得了“珍惜”二字的重量。
+  
+  书中反复出现的“灯笼”意象，成为贯穿生死的情感纽带。当刘十三在山顶为外婆挂起灯笼时，当程霜在病房里用画笔描绘云边镇的星空时，当球球在福利院仰头望向夜空时，灯笼的光晕模糊了生死界限，让思念得以跨越山海。这种对离别的诗意化处理，让悲伤不再绝望，而是化作继续前行的力量。
+  </p>
+        <div class="image-group">
+          <img src="有.jpg" alt="3" width="400">
+          
+         
+        </div>
+
+      </p>
+
+      <form action="https://weread.qq.com/">
+        <label for="book-search">如果你对这本书很感兴趣，请输入《云边有个小卖部》或作者：张嘉佳：</label>
+        <input type="text" id="book-search" name="search_text" 
+          placeholder="<请输入>
+        <input type="submit" value="立即搜索">
+      </form>
+
+      
+
+    </main>
+  </body>
+</html>

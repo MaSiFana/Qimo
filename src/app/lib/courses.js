@@ -1,7 +1,7 @@
 export const courses = [
   {
     id: 1,
-    title: "HTML基础练习",
+    title: "HTML基础练习项目",
     description: "学习HTML基础标签和页面结构",
     image: "/html.jpg",
     slug: "html-basics"

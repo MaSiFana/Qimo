@@ -25,9 +25,31 @@ export default function NewPage() {
             <Image src={course.image} alt={course.title} width={1000} height={1000} style={{ width: '200px', height: '200px', objectFit: 'cover', marginBottom: '15px', marginLeft: 'auto', marginRight: 'auto' }} />
             <span style={{ fontSize: '20px', fontWeight: '600' }}>{course.title}</span>
             <span style={{ fontSize: '16px', color: '#555', marginTop: '8px' }}>{course.description}</span>
-            <Link href={`/courses/${course.slug}`}>
-              <button style={{ backgroundColor: '#0070f3', color: 'white', padding: '6px 12px', borderRadius: '4px', marginTop: '10px', border: 'none', cursor: 'pointer', fontSize: '14px' }}>查看详情</button>
-            </Link>
+            {course.title === "HTML基础练习项目" ? (
+              <a href="/HTML/main.html" target="_blank">
+                <button style={{ backgroundColor: '#0070f3', color: 'white', padding: '6px 12px', borderRadius: '4px', marginTop: '10px', border: 'none', cursor: 'pointer', fontSize: '14px' }}>查看详情</button>
+              </a>
+            ) : course.title === "CSS布局实践" ? (
+              <a href="/csssecond/2222.html" target="_blank">
+                <button style={{ backgroundColor: '#0070f3', color: 'white', padding: '6px 12px', borderRadius: '4px', marginTop: '10px', border: 'none', cursor: 'pointer', fontSize: '14px' }}>查看详情</button>
+              </a>
+            ) : course.title === "JavaScript基础" ? (
+              <a href="/HTML/main.html" target="_blank">
+                <button style={{ backgroundColor: '#0070f3', color: 'white', padding: '6px 12px', borderRadius: '4px', marginTop: '10px', border: 'none', cursor: 'pointer', fontSize: '14px' }}>查看详情</button>
+              </a>
+            ) : course.title === "React基础" ? (
+              <a href="/csssecond/2222.html" target="_blank">
+                <button style={{ backgroundColor: '#0070f3', color: 'white', padding: '6px 12px', borderRadius: '4px', marginTop: '10px', border: 'none', cursor: 'pointer', fontSize: '14px' }}>查看详情</button>
+              </a>
+            ) : course.title === "Github集合" ? (
+              <a href="https://github.com/MaSiFana/-MaSiFana" target="_blank">
+                <button style={{ backgroundColor: '#0070f3', color: 'white', padding: '6px 12px', borderRadius: '4px', marginTop: '10px', border: 'none', cursor: 'pointer', fontSize: '14px' }}>查看详情</button>
+              </a>
+            ) : (
+              <Link href={`/courses/${course.slug}`}>
+                <button style={{ backgroundColor: '#0070f3', color: 'white', padding: '6px 12px', borderRadius: '4px', marginTop: '10px', border: 'none', cursor: 'pointer', fontSize: '14px' }}>查看详情</button>
+              </Link>
+            )}
           </li>
         ))}
       </ul>

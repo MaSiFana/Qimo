@@ -50,27 +50,62 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## QAnything集成路径与实现细节
 
-本项目中，QAnything的集成路径为：`src/app/page.js`。具体实现细节如下：
+  1.集成路径
+选择了路径1“你可以直接在Next.js应用中通过iframe嵌入或其他方式链接到QAnything提供的现有HTML问答页面。
+”引入 JS 脚本：通过<script>标签引入 QAnything 的 JS 库，该库负责加载聊天界面 iframe</script>
+配置参数：通过data-*属性设置聊天窗口的外观和行为
+DOM 挂载：脚本会在页面加载后自动创建聊天按钮和 iframe 组件
 
-1. 在`src/app/page.js`中，引入了QAnything的脚本文件。
+3.样式定制
+目前使用了系统默认样式，如需自定义可通过以下方式：
 
-2. 在`src/app/page.js`中，使用了QAnything的API来实现课程作业的展示。具体来说，使用了`QAnything.embedChatbot`方法来嵌入QAnything的聊天机器人。该方法的参数如下：
-   - `container`：聊天机器人的容器元素，即QAnything的聊天机器人会嵌入到该元素中。
-   - `botId`：聊天机器人的ID，即QAnything的聊天机器人的唯一标识符。
-   - `config`：聊天机器人的配置对象，其中包含了聊天机器人的一些配置信息，如聊天机器人的名称、头像、背景颜色等。
+4.修改图标 URL 参数替换默认图标
+通过 CSS 覆盖默认样式（需要注意样式优先级）
+联系 QAnything 客服获取高级定制选项
+
 
 ## Wakatime API集成路径与实现细节
-
-本项目中，Wakatime API的集成路径为：`src/app/page.js`。具体实现细节如下：
-1. 在`src/app/page.js`中，引入了Wakatime API的脚本文件。
-2. 首先将key和name保存在环境变量里面，调用wakatime api server（直接用Wakatime的现成代码）
+在项目根目录创建 .env.local（本地开发）或 .env.production（生产环境）。
+在 .env 文件中添加以下内容：
+WAKATIME_API_KEY=your_api_key
+请将 `your_api_key` 替换为你自己的 API 密钥。   
 
 ## Next.js集成路径与实现细节
 
-本项目中，Next.js的集成路径为：`src/app/page.js`。具体实现细节如下：
-1. 在`src/app/page.js`中，引入了Next.js的脚本文件。
-2. 在`src/app/page.js`中，使用了Next.js的路由功能来实现页面的跳转。具体来说，使用了`useRouter`方法来获取路由对象，然后使用路由对象的`push`方法来跳转到指定的页面。
+1. 项目架构与布局系统**
+- **全局布局**：使用Next.js 13的App Router架构，在`app/layout.js`中定义全局布局，包含：
+  - 导入Google字体（Geist Sans和Geist Mono）并应用于整个项目
+  - 在每个页面底部注入`<Footer />`组件
+  - 设置HTML语言属性和元数据（标题、描述）
+- **页面组件**：`pages/NewPage.jsx`作为具体页面，展示课程列表内容
 
-## 总结
 
-本项目的实现过程中，主要是对QAnything和Wakatime API的集成。其中，QAnything的集成比较简单，只需要引入脚本文件和调用API即可。而Wakatime API的集成则需要引入脚本文件、调用API以及将key和name保存在环境变量中。Next.js的集成则需要引入脚本文件以及使用路由功能来实现页面的跳转。
+2. 第三方服务集成（QAnything客服系统）**
+- **集成方式**：通过在页面中直接嵌入`<script>`标签引入QAnything客服系统
+- **关键参数**：
+  - `data-agent-src`：指定客服机器人的共享链接
+  - `data-default-open`：控制是否默认展开聊天窗口
+  - `data-drag`：允许用户拖动客服窗口位置
+  - `data-open/close-icon`：自定义打开/关闭状态的图标
+- **加载策略**：使用`defer`属性确保脚本在DOM加载完成后执行，避免阻塞页面渲染
+
+
+3. 组件与数据流程**
+- **核心组件**：
+  - `Image`（Next.js优化的图片组件）
+  - `Link`（客户端路由跳转）
+  - `Footer`（全局页脚组件）
+- **数据来源**：从`./lib/courses`模块导入课程数据，用于渲染课程列表
+- **动态路由**：通过`Link`组件实现课程详情页的路由（如`/courses/[slug]`）
+
+
+4. 样式与布局实现**
+- **内联样式**：大量使用JSX内联样式（如`style={{...}}`）控制元素外观
+- **布局结构**：
+  - 页面整体采用居中对齐设计
+  - 课程列表使用flexbox布局实现响应式排列
+  - 卡片组件包含图片、标题、描述和操作按钮
+- **视觉效果**：
+  - 背景色：#f5f5dc（米黄色）
+  - 主色调：#0070f3（蓝色按钮）
+  - 卡片阴影：`box-shadow: 0 2px 5px rgba(0,0,0,0.1)`
